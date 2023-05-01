@@ -1,0 +1,16 @@
+version: "3"
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: mssql
+    restart: always
+    environment:
+      ACCEPT_EULA: Y
+      MSSQL_SA_PASSWORD: newPassword1!
+      MSSQL_PID: Express
+    ports:
+      - 1433:1433
+#수행 후 실행할 것
+#sudo docker exec -it mssql /opt/mssql-tools/bin/sqlcmd -S > localhost -U SA -P newPassword1! -Q 'ALTER LOGIN SA WITH PASSWORD="passwordcc@@41"'
+#sudo docker exec -it mssql "bash"
+#/opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "<your password>"
